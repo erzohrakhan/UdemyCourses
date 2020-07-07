@@ -2,15 +2,18 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 @SpringBootApplication
-public class SpringDemoAnnotationsApplication {
+public class JavaConfigDemoApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringDemoAnnotationsApplication.class, args);
-		// read spring config file
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		SpringApplication.run(JavaConfigDemoApp.class, args);
+		
+		// read spring Java config file
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SportConfig.class);
+		
 		// get the bean
 		SwimCoach theCoach = context.getBean("swimCoach", SwimCoach.class);
 
