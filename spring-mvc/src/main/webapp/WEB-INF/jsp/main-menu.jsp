@@ -9,6 +9,9 @@
 <body>
 	<hr>
 	<a href="showform">Hello World form </a>
+	<br><br>
+	<a href="student/showform"> Student Form</a>
+	
 
 </body>
 </html>

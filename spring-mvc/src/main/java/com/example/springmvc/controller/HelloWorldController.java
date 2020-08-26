@@ -1,11 +1,10 @@
 package com.example.springmvc.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HelloWorldController {
@@ -22,13 +21,11 @@ public class HelloWorldController {
 	}
 
 	// Controller to read from data and add data to model
-	@RequestMapping(value = "/processform2", method = RequestMethod.POST)
-	public String letsShoutDude(HttpServletRequest req, Model model) {
+	@RequestMapping(value = "/processform3", method = RequestMethod.POST)
+	public String letsShoutDude(@RequestParam("studentName") String theName, Model model) {
 
-		// read the request parameter from html
-		String theName = req.getParameter("studentName");
 		// convert the data to all caps and create message
-		String result = "Yo! " + theName.toUpperCase();
+		String result = "Welcome " + theName.toUpperCase();
 		model.addAttribute("message", result);
 		return "hello";
 	}
